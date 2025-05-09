@@ -42,16 +42,16 @@ import 'package:isamm_news/providers/navigationMenuProvider.dart';
                   Icons.explore,
                   color: Color(0xFF1A998E),
                 ),
-                label: "scan",
+                label: "find isamm",
               ),
-              NavigationDestination(
-                icon: Icon(Icons.bookmark),
-                label: "favorite",
-                selectedIcon: Icon(
-                  Icons.bookmark,
-                  color: Color(0xFF1A998E),
-                ),
-              ),
+              // NavigationDestination(
+              //   icon: Icon(Icons.bookmark),
+              //   label: "favorite",
+              //   selectedIcon: Icon(
+              //     Icons.bookmark,
+              //     color: Color(0xFF1A998E),
+              //   ),
+              // ),
               NavigationDestination(
                   icon: Icon(Icons.person),
                   selectedIcon: Icon(

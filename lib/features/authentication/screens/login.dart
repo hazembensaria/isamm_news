@@ -58,6 +58,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 12),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(
                 height: 30,
@@ -70,7 +71,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 height: 30,
               ),
               const Text(
-                "Newsline",
+                "isamm news",
                 style: TextStyle(
                     fontFamily: "playfair",
                     fontSize: 40,
@@ -101,19 +102,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
               const SizedBox(
                 height: 15,
               ),
-              ProviderButton(
-                  load: false,
-
-                function: () {},
-                title: "continue with Facebook",
-                image: "assets/logos/facebook.png",
-                textColor: Colors.black,
-                bgColor: Colors.white,
-                borderWidth: 1.5,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
+              
+             
               ProviderButton(
                   load: false,
 
@@ -149,7 +139,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                               builder: (ctx) => const SignUpScreen()));
                     },
                     child: const Text(
-                      "Signe up",
+                      "Sign up",
                       style: TextStyle(
                         fontFamily: "urbanist",
                         color: Color(0xFF1A998E),

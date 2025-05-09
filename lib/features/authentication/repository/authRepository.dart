@@ -195,6 +195,8 @@ class AuthRepository {
       final userRef =
           _firestore.collection('users').doc(userCredential.user!.uid);
       final doc = await userRef.get();
+          print("++++++++++++++++++++++++++++++++++++++++++++++++++");
+          print(doc.data());
       ref.read(userProvider.notifier).setMailAndName(
             userCredential.user!.displayName!,
             userCredential.user!.email!,
@@ -226,7 +228,7 @@ class AuthRepository {
           ref.read(userProvider.notifier).setCurrentUser(CurrentUser(
               name: data!["name"],
               age: data["age"],
-              role: "user",
+              role: data["role"],
               email: data["email"],
               address: data["address"],
               job: data["job"],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:isamm_news/NavigationMenu.dart';
 import 'package:isamm_news/features/authentication/providers/authServiceProvider.dart';
 import 'package:isamm_news/features/authentication/widgets/providerButton.dart';
 
@@ -13,7 +14,7 @@ class InterstsScreen extends ConsumerStatefulWidget {
 
 class _InterstsScreenState extends ConsumerState<InterstsScreen> {
 bool load = false ;
-  _saveSelectedItems()async{
+  _saveSelectedItems()async{  
     setState(() {
       load = true ;
     });
@@ -21,6 +22,10 @@ bool load = false ;
     setState(() {
       load = false ;
     });
+     Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (ctx) => const NavigationMenu()));
   }
   final Set<String> _selectedItems = Set<String>();
   List<GridItem> items = [

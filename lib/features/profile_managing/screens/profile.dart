@@ -17,6 +17,7 @@ class ProfileScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     CurrentUser user = ref.watch(userProvider)!;
+    print(user.toJson());
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -86,7 +87,7 @@ class ProfileScreen extends ConsumerWidget {
                 },
                 icon: Icons.settings,
               ),
-              ProfileMenuWidget(
+             if(user.role == "admin") ProfileMenuWidget(
                 title: 'add tags',
                 onPress: () {
                   Navigator.push(
@@ -100,7 +101,7 @@ class ProfileScreen extends ConsumerWidget {
           ),
         ),
       ),
-      floatingActionButton: ElevatedButton(
+      floatingActionButton: user.role == "user" ? ElevatedButton(
         style: ElevatedButton.styleFrom(
             elevation: 10,
             shadowColor: Color(0XFFbae0dd),
@@ -116,7 +117,7 @@ class ProfileScreen extends ConsumerWidget {
           Navigator.push(context,
               MaterialPageRoute(builder: (cnt) => ArticleEditorScreen()))
         },
-      ),
+      ) : null ,
     );
   }
 

@@ -6,7 +6,7 @@ import 'package:isamm_news/features/profile_managing/screens/profile.dart';
 
 class NavigationMenuNotifier extends StateNotifier<int> {
   NavigationMenuNotifier() : super(0);
-  final screens = [const HomeScreen() ,  MapScreen() ,const HomeScreen() ,const ProfileScreen() ];
+  final screens = [const HomeScreen() ,  MapScreen() ,const ProfileScreen() ];
  
  void setIndex(index){
   state = index ;

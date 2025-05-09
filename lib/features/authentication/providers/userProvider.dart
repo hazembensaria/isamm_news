@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:isamm_news/features/authentication/models/user.dart';
 
 class CurrentUserNotifier extends StateNotifier<CurrentUser?> {
-  CurrentUserNotifier() : super(CurrentUser(name: "haezm", age: 0, role: "user", email: '', address: '', job: '', phone: '' , interests: [])){
+  CurrentUserNotifier() : super(CurrentUser(name: "", age: 0, role: "", email: '', address: '', job: '', phone: '' , interests: [])){
     _loadUser();
     print('load from local storagggggggggeeeeee !!!!!!');
   }

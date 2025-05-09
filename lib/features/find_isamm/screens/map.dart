@@ -53,6 +53,18 @@ class _MapScreenState extends State<MapScreen> {
         currentLocation = newLocation;
       });
     });
+
+        setState(() {
+      markers.add(
+       const Marker(
+          width: 80.0,
+          height: 80.0,
+          point: LatLng(36.8160194 ,10.0617773),
+          child:  Icon(Icons.location_on, color: Colors.red, size: 40.0),
+        ),
+      );
+    });
+     _getRoute(const LatLng(36.8160194 ,10.0617773));
   }
 
   Future<void> _getRoute(LatLng destination) async {
@@ -105,7 +117,7 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('OpenStreetMap with Flutter'),
+        title: Row(children: [Icon(Icons.location_on , color: Colors.red,) , SizedBox(width: 10,) ,  const Text('Find ISAMM'  ),], mainAxisAlignment: MainAxisAlignment.center,)
       ),
       body: currentLocation == null
           ? const Center(child: CircularProgressIndicator())
@@ -115,7 +127,7 @@ class _MapScreenState extends State<MapScreen> {
                 initialCenter: LatLng(
                     currentLocation!.latitude!, currentLocation!.longitude!),
                 initialZoom: 15.0,
-                onTap: (tapPosition, point) => _addDestinationMarker(point),
+                // onTap: (tapPosition, point) => _addDestinationMarker(point),
               ),
               children: [
                 TileLayer(

@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:isamm_news/NavigationMenu.dart';
+import 'package:isamm_news/features/home/screens/home.dart';
 import 'package:isamm_news/features/write_article/models/article.dart';
 import 'package:isamm_news/features/write_article/providers/articleProvider.dart';
 import 'package:isamm_news/features/write_article/providers/articleServiceProvider.dart';
+import 'package:isamm_news/providers/navigationMenuProvider.dart';
 import 'package:palette_generator/palette_generator.dart';
 
 
@@ -130,6 +133,10 @@ class _ArticleScreenState extends ConsumerState<ArticleScreen> {
                                 ref
                                     .read(articleServiceProvider)
                                     .createArticle(article);
+                                     Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (ctx) => const NavigationMenu()));
                               },
                             ),
                           ),

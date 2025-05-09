@@ -78,10 +78,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
 
   final TextEditingController _commentController = TextEditingController();
   Future<void> _addComment() async {
-    if (isReply) {
-      addReply(commentId,
-          {"content": _commentController.text, "timestemp": Timestamp.now()});
-    } else {
+
       if (_commentController.text.isEmpty) {
         return;
       }
@@ -124,7 +121,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
           SnackBar(content: Text('Failed to add comment: $e')),
         );
       }
-    }
+    
   }
 
   // @override
@@ -270,38 +267,6 @@ class _CommentsScreenState extends State<CommentsScreen> {
                                   ],
                                 ),
                               ),
-                              if(!comment["isOpen"])
-                              StreamBuilder(
-                                  stream: loadReplies(widget.id),
-                                  builder: (ctx, snapshot) {
-                                    if (snapshot.connectionState ==
-                                        ConnectionState.waiting) {
-                                      return CircularProgressIndicator();
-                                    }
-                                    if (snapshot.hasError) {
-                                      return Text("error occure!!!");
-                                    }
-                                    if (!snapshot.hasData ||
-                                        snapshot.data!.docs.isEmpty) {
-                                      return Text("no data here!");
-                                    }
-                                    print(snapshot.data!.docs.first);
-                                    return Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 56.0), // Indentation
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children:
-                                            snapshot.data!.docs.map((reply) {
-                                          return ListTile(
-                                            title: Text(reply["content"]),
-                                            subtitle: Text('Reply by:'),
-                                          );
-                                        }).toList(),
-                                      ),
-                                    );
-                                  }),
                               const Divider(),
                             ],
                           );

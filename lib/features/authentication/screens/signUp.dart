@@ -216,7 +216,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                   contentPadding: const EdgeInsets.symmetric(
                       horizontal: 16.0, vertical: 14.0),
                 ),
-                keyboardType: TextInputType.phone,
+                keyboardType: TextInputType.text,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your telephone password';
@@ -447,7 +447,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    "Don't have an account ?",
+                    "You an account already ?",
                     style: TextStyle(fontFamily: "urbanist"),
                   ),
                   const SizedBox(
@@ -466,7 +466,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
                             (Route<dynamic> route) => route.isFirst);
                       },
                       child: const Text(
-                        "Signe in",
+                        "Sign in",
                         style: TextStyle(
                           fontFamily: "urbanist",
                           color: Color(0xFF1A998E),
